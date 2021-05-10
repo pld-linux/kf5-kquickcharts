@@ -1,15 +1,15 @@
-%define		kdeframever	5.81
+%define		kdeframever	5.82
 %define		qtver		5.15.0
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
 Name:		kf5-%{kfname}
-Version:	5.81.0
+Version:	5.82.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0304443a3d01c992be4c26a3b250ce3a
+# Source0-md5:	fef90ddf18a3b20cd59c60b1d74e4839
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -74,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/quickcharts/controls/LegendDelegate.qml
 %{_libdir}/qt5/qml/org/kde/quickcharts/controls/LineChartControl.qml
 %{_libdir}/qt5/qml/org/kde/quickcharts/controls/Legend.qml
+%{_libdir}/qt5/qml/org/kde/quickcharts/controls/Logging.qml
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/quickcharts/libQuickCharts.so
 %{_libdir}/qt5/qml/org/kde/quickcharts/qmldir
 %{_datadir}/qlogging-categories5/kquickcharts.categories
