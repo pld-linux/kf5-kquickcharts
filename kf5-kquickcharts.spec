@@ -1,15 +1,15 @@
-%define		kdeframever	5.83
+%define		kdeframever	5.84
 %define		qtver		5.15.0
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
 Name:		kf5-%{kfname}
-Version:	5.83.0
+Version:	5.84.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0e72a291935dd801c776f9b3f38a437b
+# Source0-md5:	ab79b8b4999200dd3fa95ce7ef263b38
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
