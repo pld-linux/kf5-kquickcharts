@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.92
+%define		kdeframever	5.93
 %define		qtver		5.15.0
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
 Name:		kf5-%{kfname}
-Version:	5.92.0
+Version:	5.93.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0343b9e46201d0df551ad932c6799fda
+# Source0-md5:	4915576e0b5074713ee0b1786c5c2ef0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/quickcharts/controls
 %dir %{_libdir}/qt5/qml/org/kde/quickcharts/controls/styles
 %dir %{_libdir}/qt5/qml/org/kde/quickcharts/controls/styles/org.kde.desktop
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/libchartscontrolsplugin.so
+%{_libdir}/qt5/qml/org/kde/quickcharts/controls/libQuickChartsControls.so
 %{_libdir}/qt5/qml/org/kde/quickcharts/controls/styles/org.kde.desktop/Theme.qml
 %{_libdir}/qt5/qml/org/kde/quickcharts/controls/qmldir
 %{_libdir}/qt5/qml/org/kde/quickcharts/controls/Theme.qml
