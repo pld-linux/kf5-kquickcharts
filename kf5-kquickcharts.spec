@@ -1,25 +1,25 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.108
+%define		kdeframever	5.109
 %define		qtver		5.15.2
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
 Name:		kf5-%{kfname}
-Version:	5.108.0
+Version:	5.109.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	69ac31b15c821c705ca3d0d35f987c22
+# Source0-md5:	08b2dcd842dfcda7e406d16646b082bb
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
 BuildRequires:	Qt5Network-devel >= 5.11.1
 BuildRequires:	Qt5Qml-devel
 BuildRequires:	Qt5Quick-devel
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{kdeframever}
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
@@ -47,18 +47,16 @@ Pliki nagłówkowe dla programistów używających %{kaname}.
 %setup -q -n %{kfname}-%{version}
 
 %build
-install -d build
-cd build
-%cmake \
+%cmake -B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	..
-%ninja_build
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+
+%ninja_build -C build
 
 %if %{with tests}
-ctest
+%ninja_build -C build test
 %endif
 
 
