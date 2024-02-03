@@ -1,28 +1,28 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.114
+%define		kdeframever	5.249.0
 %define		qtver		5.15.2
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
 Name:		kf5-%{kfname}
-Version:	5.114.0
-Release:	1
+Version:	5.249.0
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	6a62f7f34d5b1d2ed2ad82801efacf4a
+Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	89fb62851e6df27e19c750c380d57c08
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Network-devel >= 5.11.1
-BuildRequires:	Qt5Qml-devel
-BuildRequires:	Qt5Quick-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Network-devel >= 5.11.1
+BuildRequires:	Qt6Qml-devel
+BuildRequires:	Qt6Quick-devel
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{kdeframever}
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -69,24 +69,31 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_libdir}/qt5/qml/org/kde/quickcharts
-%dir %{_libdir}/qt5/qml/org/kde/quickcharts/controls
-%dir %{_libdir}/qt5/qml/org/kde/quickcharts/controls/styles
-%dir %{_libdir}/qt5/qml/org/kde/quickcharts/controls/styles/org.kde.desktop
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/libQuickChartsControls.so
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/styles/org.kde.desktop/Theme.qml
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/qmldir
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/Theme.qml
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/PieChartControl.qml
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/LegendDelegate.qml
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/LineChartControl.qml
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/Legend.qml
-%{_libdir}/qt5/qml/org/kde/quickcharts/controls/Logging.qml
-%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/quickcharts/libQuickCharts.so
-%{_libdir}/qt5/qml/org/kde/quickcharts/qmldir
-%{_datadir}/qlogging-categories5/kquickcharts.categories
+%dir %{_libdir}/qt6/qml/org/kde/quickcharts
+%dir %{_libdir}/qt6/qml/org/kde/quickcharts/controls
+%{_datadir}/qlogging-categories6/kquickcharts.categories
+%ghost %{_libdir}/libQuickCharts.so.1
+%attr(755,root,root) %{_libdir}/libQuickCharts.so.*.*
+%ghost %{_libdir}/libQuickChartsControls.so.1
+%attr(755,root,root) %{_libdir}/libQuickChartsControls.so.*.*
+%{_libdir}/qt6/qml/org/kde/quickcharts/QuickCharts.qmltypes
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/KirigamiTheme.qml
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/Legend.qml
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/LegendDelegate.qml
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/LineChartControl.qml
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/PieChartControl.qml
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/QuickChartsControls.qmltypes
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/Theme.qml
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/kde-qmlmodule.version
+%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/quickcharts/controls/libQuickChartsControlsplugin.so
+%{_libdir}/qt6/qml/org/kde/quickcharts/controls/qmldir
+%{_libdir}/qt6/qml/org/kde/quickcharts/kde-qmlmodule.version
+%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/quickcharts/libQuickChartsplugin.so
+%{_libdir}/qt6/qml/org/kde/quickcharts/qmldir
+
 
 %files devel
 %defattr(644,root,root,755)
-# %{_includedir}/KF5/kqtquickcharts_version.h
-%{_libdir}/cmake/KF5QuickCharts
+%{_libdir}/cmake/KF6QuickCharts
+%{_libdir}/libQuickCharts.so
+%{_libdir}/libQuickChartsControls.so
