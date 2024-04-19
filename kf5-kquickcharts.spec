@@ -6,6 +6,7 @@
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
+Summary(pl.UTF-8):	Wtyczka do ładnych i interaktywnych wykresów
 Name:		kf5-%{kfname}
 Version:	5.115.0
 Release:	1
@@ -30,6 +31,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Qt Quick plugin for beautiful and interactive charts.
+
+%description -l pl.UTF-8
+Wtyczka Qt Quick do ładnych i interaktywnych wykresów.
 
 %package devel
 Summary:	Header files for %{kaname} development
