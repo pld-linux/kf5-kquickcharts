@@ -36,6 +36,8 @@ Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5Core-devel >= %{qtver}
+Requires:	kf5-extra-cmake-modules >= %{kdeframever}
 
 %description devel
 Header files for %{kfname} development.
