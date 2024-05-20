@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.115
+%define		kdeframever	5.116
 %define		qtver		5.15.2
 %define		kfname		kquickcharts
 
 Summary:	Plugin for beautiful and interactive charts
 Summary(pl.UTF-8):	Wtyczka do ładnych i interaktywnych wykresów
 Name:		kf5-%{kfname}
-Version:	5.115.0
-Release:	2
+Version:	5.116.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	6ae56540d6d56086701a5dc130917e32
+# Source0-md5:	0b3de6d8e5541e0079e3b561c37aa97e
 URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
